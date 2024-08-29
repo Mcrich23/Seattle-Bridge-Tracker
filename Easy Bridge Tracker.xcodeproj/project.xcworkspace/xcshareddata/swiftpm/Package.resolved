@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/google/abseil-cpp-binary.git",
         "state": {
           "branch": null,
-          "revision": "bfc0b6f81adc06ce5121eb23f628473638d67c5c",
-          "version": "1.2022062300.0"
+          "revision": "194a6706acbd25e4ef639bcaddea16e8758a3e27",
+          "version": "1.2024011602.0"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/google/app-check.git",
         "state": {
           "branch": null,
-          "revision": "5746b2d35c91c50581590ed97abe4c06b5037274",
-          "version": "10.18.0"
+          "revision": "3b62f154d00019ae29a71e9738800bb6f18b236d",
+          "version": "10.19.2"
         }
       },
       {
@@ -33,8 +33,8 @@
         "repositoryURL": "https://github.com/firebase/firebase-ios-sdk",
         "state": {
           "branch": null,
-          "revision": "5de0369ee79ad096c164eb3afeb7921d92a43b58",
-          "version": "10.18.0"
+          "revision": "eca84fd638116dd6adb633b5a3f31cc7befcbb7d",
+          "version": "10.29.0"
         }
       },
       {
@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/google/GoogleAppMeasurement.git",
         "state": {
           "branch": null,
-          "revision": "6b332152355c372ace9966d8ee76ed191f97025e",
-          "version": "10.17.0"
+          "revision": "fe727587518729046fc1465625b9afd80b5ab361",
+          "version": "10.28.0"
         }
       },
       {
@@ -51,8 +51,8 @@
         "repositoryURL": "https://github.com/google/GoogleDataTransport.git",
         "state": {
           "branch": null,
-          "revision": "aae45a320fd0d11811820335b1eabc8753902a40",
-          "version": "9.2.5"
+          "revision": "a637d318ae7ae246b02d7305121275bc75ed5565",
+          "version": "9.4.0"
         }
       },
       {
@@ -60,8 +60,8 @@
         "repositoryURL": "https://github.com/google/GoogleUtilities.git",
         "state": {
           "branch": null,
-          "revision": "bc27fad73504f3d4af235de451f02ee22586ebd3",
-          "version": "7.12.1"
+          "revision": "57a1d307f42df690fdef2637f3e5b776da02aad6",
+          "version": "7.13.3"
         }
       },
       {
@@ -69,8 +69,8 @@
         "repositoryURL": "https://github.com/google/grpc-binary.git",
         "state": {
           "branch": null,
-          "revision": "a673bc2937fbe886dd1f99c401b01b6d977a9c98",
-          "version": "1.49.1"
+          "revision": "e9fad491d0673bdda7063a0341fb6b47a30c5359",
+          "version": "1.62.2"
         }
       },
       {
@@ -78,8 +78,8 @@
         "repositoryURL": "https://github.com/google/gtm-session-fetcher.git",
         "state": {
           "branch": null,
-          "revision": "d415594121c9e8a4f9d79cecee0965cf35e74dbd",
-          "version": "3.1.1"
+          "revision": "a2ab612cb980066ee56d90d60d8462992c07f24b",
+          "version": "3.5.0"
         }
       },
       {
@@ -105,8 +105,8 @@
         "repositoryURL": "https://github.com/firebase/leveldb.git",
         "state": {
           "branch": null,
-          "revision": "0706abcc6b0bd9cedfbb015ba840e4a780b5159b",
-          "version": "1.22.2"
+          "revision": "a0bc79961d7be727d258d33d5a6b2f1023270ba1",
+          "version": "1.22.5"
         }
       },
       {
@@ -132,8 +132,8 @@
         "repositoryURL": "https://github.com/firebase/nanopb.git",
         "state": {
           "branch": null,
-          "revision": "819d0a2173aff699fb8c364b6fb906f7cdb1a692",
-          "version": "2.30909.0"
+          "revision": "b7e1104502eca3a213b46303391ca4d3bc8ddec1",
+          "version": "2.30910.0"
         }
       },
       {
@@ -141,7 +141,7 @@
         "repositoryURL": "https://github.com/Mcrich23/PortfolioKit",
         "state": {
           "branch": "main",
-          "revision": "7fd3b50b04d5279e02fb49d536c908d56a9b5abb",
+          "revision": "f9f9ea4f7a1d3fb41087b866fdbe5cc4bb892a11",
           "version": null
         }
       },
@@ -150,8 +150,8 @@
         "repositoryURL": "https://github.com/google/promises.git",
         "state": {
           "branch": null,
-          "revision": "e70e889c0196c76d22759eb50d6a0270ca9f1d9e",
-          "version": "2.3.1"
+          "revision": "540318ecedd63d883069ae7f1ed811a2df00b6ac",
+          "version": "2.4.0"
         }
       },
       {
@@ -159,8 +159,8 @@
         "repositoryURL": "https://github.com/RevenueCat/purchases-ios.git",
         "state": {
           "branch": null,
-          "revision": "f2f5314fa92d3556fe23e857b34eeed13934c6fb",
-          "version": "4.25.2"
+          "revision": "7d55b964114a3d4a76791227cdc28577617596db",
+          "version": "4.43.2"
         }
       },
       {
@@ -195,8 +195,8 @@
         "repositoryURL": "https://github.com/googleads/swift-package-manager-google-mobile-ads.git",
         "state": {
           "branch": null,
-          "revision": "0cf1f2589641e52c444a3a61470d737efab485fd",
-          "version": "10.13.0"
+          "revision": "70516c9e799a366ff90c1a70c09c48f7c076fd8a",
+          "version": "10.14.0"
         }
       },
       {
@@ -204,8 +204,8 @@
         "repositoryURL": "https://github.com/googleads/swift-package-manager-google-user-messaging-platform.git",
         "state": {
           "branch": null,
-          "revision": "129fa838520cd02174f890ae0cfe0242e60714ae",
-          "version": "2.1.0"
+          "revision": "459949af1286c12487a6efd76f00f3e9d951c9ba",
+          "version": "2.5.0"
         }
       },
       {
@@ -213,8 +213,8 @@
         "repositoryURL": "https://github.com/apple/swift-protobuf.git",
         "state": {
           "branch": null,
-          "revision": "ce20dc083ee485524b802669890291c0d8090170",
-          "version": "1.22.1"
+          "revision": "e17d61f26df0f0e06f58f6977ba05a097a720106",
+          "version": "1.27.1"
         }
       },
       {
@@ -240,7 +240,7 @@
         "repositoryURL": "https://github.com/markiv/SwiftUI-Shimmer",
         "state": {
           "branch": "main",
-          "revision": "17b66b0e7d94d2d3f220bbcb021b5026436f06c7",
+          "revision": "0226e21f9bf355d40e07e5f5e1c33679d50e167f",
           "version": null
         }
       },
