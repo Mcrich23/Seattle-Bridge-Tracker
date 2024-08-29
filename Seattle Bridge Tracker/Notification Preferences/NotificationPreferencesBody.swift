@@ -85,20 +85,20 @@ struct NotificationPreferencesBody: View {
                 } label: {
                     Image(systemName: "square.and.arrow.up")
                 }
-                .hoverEffect(.highlight)
+                .hoverEffect(SwiftUI.HoverEffect.highlight)
                 Button {
                     preferencesModel.duplicateNotificationPreferenceAlert(basedOn: preference, onDone: {})
                 } label: {
                     Image(systemName: "doc.on.doc")
                 }
-                .hoverEffect(.highlight)
+                .hoverEffect(SwiftUI.HoverEffect.highlight)
                 Button {
                     preferencesModel.deleteNotificationPreference(preference: preference)
                 } label: {
                     Image(systemName: "minus.circle.fill")
                         .foregroundColor(Color.red)
                 }
-                .hoverEffect(.highlight)
+                .hoverEffect(SwiftUI.HoverEffect.highlight)
             }
             .imageScale(.large)
             .frame(height: 40)

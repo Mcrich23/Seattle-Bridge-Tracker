@@ -72,7 +72,7 @@ struct BridgeView: View {
                     }
                     .accessibilityIdentifier("Back")
                     .accessibilityHint(Text("Back"))
-                    .hoverEffect(.highlight)
+                    .hoverEffect(SwiftUI.HoverEffect.highlight)
                     .padding()
                     Spacer()
                     Button {
@@ -88,7 +88,7 @@ struct BridgeView: View {
                             .clipped()
                     }
                     .accessibilityHint(Text("Refresh"))
-                    .hoverEffect(.highlight)
+                    .hoverEffect(SwiftUI.HoverEffect.highlight)
                     .padding()
                     Button {
                         contentViewModel.toggleSubscription(for: bridge)
@@ -103,7 +103,7 @@ struct BridgeView: View {
                             .clipped()
                     }
                     .accessibilityHint(Text("Subscribe to Notifications"))
-                    .hoverEffect(.highlight)
+                    .hoverEffect(SwiftUI.HoverEffect.highlight)
                     .padding()
                 }
                 .padding(.vertical, 76)

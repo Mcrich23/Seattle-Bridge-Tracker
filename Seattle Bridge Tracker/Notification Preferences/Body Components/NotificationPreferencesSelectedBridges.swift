@@ -31,7 +31,7 @@ struct NotificationPreferencesSelectedBridges: View {
                     Text("\(preference.bridgeIds.count) Bridges Selected")
                 }
             }
-            .hoverEffect(.highlight)
+            .hoverEffect(SwiftUI.HoverEffect.highlight)
         }
     }
 }
