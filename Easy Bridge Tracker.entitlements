@@ -9,6 +9,8 @@
 		<string>applinks:mcrich23.com</string>
 		<string>applinks:bridges.mcrich23.com</string>
 	</array>
+	<key>com.apple.developer.carplay-driving-task</key>
+	<true/>
 	<key>com.apple.developer.usernotifications.time-sensitive</key>
 	<true/>
 </dict>
