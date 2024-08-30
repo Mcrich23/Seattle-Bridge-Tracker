@@ -49,12 +49,13 @@ class ContentViewModel: ObservableObject {
     let dataFetch = TwitterFetch()
     let noImage = URL(string: "https://st4.depositphotos.com/14953852/22772/v/600/depositphotos_227725020-stock-illustration-image-available-icon-flat-vector.jpg")!
     
-    func fetchData(repeatFetch: Bool) {
+    func fetchData(repeatFetch: Bool, completion: (([String : [Bridge]]) -> Void)? = nil) {
         Task {
             await self.fetchDataInternal()
+            completion?(sortedBridges)
             try await Task.sleep(nanoseconds: 2_000_000_000) // Wait 2 seconds
             if repeatFetch {
-                self.fetchData(repeatFetch: true)
+                self.fetchData(repeatFetch: true, completion: completion)
             }
         }
         

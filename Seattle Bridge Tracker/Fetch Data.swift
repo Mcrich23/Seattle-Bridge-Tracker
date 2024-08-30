@@ -16,7 +16,9 @@ enum HttpError: Error {
 
 class TwitterFetch {
     private var url: URL? {
-        if Utilities.appType == .AppStore {
+        if Utilities.isFastlaneRunning, let bundleUrl = Bundle.main.url(forResource: "DummyPromo", withExtension: "json") {
+            return bundleUrl
+        } else if Utilities.appType == .AppStore {
             guard let urlString = Utilities.remoteConfig["fetchUrl"].stringValue else { return nil }
             return URL(string: urlString)
         } else {
@@ -50,40 +52,26 @@ class TwitterFetch {
                     return
                 }
                 
-                if let response = response as? HTTPURLResponse {
-                    guard (200 ... 299) ~= response.statusCode else {
-                        ConsoleManager.printStatement("❌ Status code is \(response.statusCode)")
-                        errorHandler(HTTPStatusCode(rawValue: response.statusCode) ?? .notFound)
-                        completion([])
-                        return
-                    }
+                if let response = response as? HTTPURLResponse, !((200 ... 299) ~= response.statusCode) {
+                    ConsoleManager.printStatement("❌ Status code is \(response.statusCode)")
+                    errorHandler(HTTPStatusCode(rawValue: response.statusCode) ?? .notFound)
+                    completion([])
+                    return
+                }
+                
+                guard let data = data else {
+                    completion([])
+                    return
+                }
+                
+                do {
+                    let jsonDecoder = JSONDecoder()
+                    jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                    let result = try jsonDecoder.decode([Response].self, from: data)
                     
-                    guard let data = data else {
-                        completion([])
-                        return
-                    }
-                    
-                    do {
-                        let jsonDecoder = JSONDecoder()
-                        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-                        if  Utilities.isFastlaneRunning {
-                            if let bundlePath = Bundle.main.url(forResource: "DummyPromo", withExtension: "json") {
-                                let result = try jsonDecoder.decode([Response].self, from: Data(contentsOf: bundlePath))
-                                
-                                completion(result)
-                            } else {
-                                let result = try jsonDecoder.decode([Response].self, from: data)
-                                
-                                completion(result)
-                            }
-                        } else {
-                            let result = try jsonDecoder.decode([Response].self, from: data)
-                            
-                            completion(result)
-                        }
-                    } catch {
-                        ConsoleManager.printStatement("error = \(error)")
-                    }
+                    completion(result)
+                } catch {
+                    ConsoleManager.printStatement("error = \(error)")
                 }
             }
             task.resume()
