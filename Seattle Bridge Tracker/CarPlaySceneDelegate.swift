@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import SwiftUI
 import CarPlay
+import Mcrich23_Toolkit
 
 class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
     let viewModel = ContentViewModel()
@@ -38,6 +39,13 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
     }
     
     func fetchTemplateUpdates(with interfaceController: CPInterfaceController) {
+        guard NetworkMonitor.shared.isConnected else {
+            let template = CPListTemplate(title: "No Internet", sections: [])
+            
+            interfaceController.setRootTemplate(template, animated: true, completion: nil)
+            
+            return
+        }
         viewModel.fetchData(repeatFetch: true) { sortedBridges in
             let sections: [CPListSection] = sortedBridges.map { name, bridges in
                 let items = bridges.map({ CPListItem(text: $0.name, detailText: $0.status.rawValue.capitalized, image: UIImage(url: $0.imageUrl)) })
