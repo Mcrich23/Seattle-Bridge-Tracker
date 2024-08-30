@@ -27,13 +27,11 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
     private func makeRootTemplate() -> CPTemplate {
         // 5 - Setting the content for the template
         let sections: [CPListSection] = [
-            .init(items: [
-                .init(text: "Hello, CarPlay!", detailText: "This is a test app.")
-            ])
+            .init(items: [], header: "Loading...", sectionIndexTitle: nil)
         ]
         
         // 6 - Selecting the template
-        let infoTemplate = CPListTemplate(title: "Hello World", sections: sections)
+        let infoTemplate = CPListTemplate(title: "Bridges", sections: sections)
         
         // 7 - Setting the information template as the root template
         return infoTemplate
@@ -42,7 +40,9 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
     func fetchTemplateUpdates(with interfaceController: CPInterfaceController) {
         viewModel.fetchData(repeatFetch: true) { sortedBridges in
             let sections: [CPListSection] = sortedBridges.map { name, bridges in
-                    .init(items: bridges.map({ CPListItem(text: $0.name, detailText: $0.status.rawValue.capitalized) }), header: name.capitalized, sectionIndexTitle: nil)
+                let items = bridges.map({ CPListItem(text: $0.name, detailText: $0.status.rawValue.capitalized, image: UIImage(url: $0.imageUrl)) })
+                
+                return .init(items: items, header: name.capitalized, sectionIndexTitle: sortedBridges.keys.count > 1 ? name.capitalized : nil)
             }
             
             let template = CPListTemplate(title: "Bridges", sections: sections)

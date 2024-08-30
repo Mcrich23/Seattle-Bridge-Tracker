@@ -142,3 +142,15 @@ struct ConsoleManager {
         LCManager.shared.print(statement)
     }
 }
+extension UIImage {
+    convenience init?(url: URL?) {
+        
+        guard let url = url,
+              let data = try? Data(contentsOf: url)
+        else {
+            return nil
+        }
+         
+        self.init(data: data)
+    }
+}
