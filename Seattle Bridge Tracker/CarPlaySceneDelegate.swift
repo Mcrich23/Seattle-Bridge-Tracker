@@ -42,12 +42,12 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate, CPI
         return infoTemplate
     }
     
-    func makeBridgeDetailTemplate(for bridge: Bridge) -> CPInformationTemplate {
-        let items: [CPInformationItem] = [
-            .init(title: bridge.status.rawValue.capitalized, detail: nil)
-        ]
+    func makeBridgeDetailTemplate(for bridge: Bridge) -> CPListTemplate {
+        let item = CPListImageRowItem(text: bridge.status.rawValue.capitalized, images: [.init(url: bridge.imageUrl) ?? .bridgeIcon ])
         
-        let template = CPInformationTemplate(title: bridge.name, layout: .leading, items: items, actions: [])
+        item.listImageRowHandler = { $2() }
+        
+        let template = CPListTemplate(title: bridge.name, sections: [.init(items: [item])])
         
         template.userInfo = [
             "isSubBridge" : true
@@ -64,7 +64,7 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate, CPI
         interfaceController.pushTemplate(template, animated: animated, completion: nil)
     }
     
-    var presentedBridgeTemplate: CPInformationTemplate?
+    var presentedBridgeTemplate: CPListTemplate?
     
     func fetchTemplateUpdates(with interfaceController: CPInterfaceController) {
         guard NetworkMonitor.shared.isConnected else {
@@ -91,8 +91,6 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate, CPI
                 return .init(items: items, header: name.capitalized, sectionIndexTitle: sortedBridges.keys.count > 1 ? name.capitalized : nil)
             }
             
-            let template = CPListTemplate(title: "Bridges", sections: sections)
-            
             guard let rootTemplate: CPListTemplate = interfaceController.rootTemplate as? CPListTemplate else { return }
             
             let rootSections: [CPListSection] = rootTemplate.sections as [CPListSection]
@@ -103,7 +101,7 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate, CPI
                 if let bridge = sortedBridges.values.flatMap({ $0 }).first(where: { $0.name == self.presentedBridgeTemplate?.title }) {
                     let template = self.makeBridgeDetailTemplate(for: bridge)
                     
-                    (interfaceController.templates[templatesIndex] as? CPInformationTemplate)?.items = template.items
+                    (interfaceController.templates[templatesIndex] as? CPListTemplate)?.updateSections(template.sections)
                 }
             }
             
