@@ -80,7 +80,7 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate, CPI
                     let item = CPListItem(text: bridge.name, detailText: bridge.status.rawValue.capitalized, image: UIImage(url: bridge.imageUrl))
                     
                     item.handler = { _, action in
-                        self.pushBridgeDetailTemplate(for: bridge, animated: true, interfaceController: interfaceController)
+//                        self.pushBridgeDetailTemplate(for: bridge, animated: true, interfaceController: interfaceController)
                         
                         action()
                     }
