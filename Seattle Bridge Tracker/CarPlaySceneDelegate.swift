@@ -88,7 +88,16 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate, CPI
             
             let sections: [CPListSection] = sortedBridges.map { name, bridges in
                 let items = bridges.map({ bridge in
-                    let item = CPListItem(text: bridge.name, detailText: bridge.status.rawValue.capitalized, image: UIImage(url: bridge.imageUrl))
+                    let icon: UIImage?
+                    
+                    switch bridge.status {
+                    case .up: icon = .init(systemSymbol: .xmark)
+                    case .down: icon = .init(systemSymbol: .checkmark)
+                    case .maintenance: icon = .init(systemSymbol: .exclamationmarkTriangle)
+                    default: icon = nil
+                    }
+                    
+                    let item = CPListItem(text: bridge.name, detailText: bridge.status.rawValue.capitalized, image: UIImage(url: bridge.imageUrl), accessoryImage: icon, accessoryType: .cloud)
                     
                     item.handler = { _, action in
 //                        self.pushBridgeDetailTemplate(for: bridge, animated: true, interfaceController: interfaceController)
